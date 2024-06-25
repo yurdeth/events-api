@@ -1,4 +1,4 @@
-** Rutas:
+## Rutas:
 - *GET* /api/events : obtener todos los elementos.
 - *GET* /api/events?q=<texto a buscar> : buscar elemento por nombre, ubicacion, descripcion, fecha.
 - *GET* /api/events/<id> : obtener un elemento por id.
