@@ -8,8 +8,9 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+// Elimina la llamada a createDB si no se necesita crear la base de datos
 const init = async () => {
-  await createDB();
+  /*await createDB();*/
   await Event.createTable();
 };
 
