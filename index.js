@@ -1,9 +1,12 @@
-// app.js
+// index.js
 import express from "express";
 import bodyParser from "body-parser";
 import eventRoutes from "./routes/eventRoutes";
 import { createDB } from "./config/database";
 import Event from "./models/eventModel";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const init = async () => {
   await createDB();
