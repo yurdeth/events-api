@@ -45,7 +45,7 @@ const Event = {
         date DATE NOT NULL,
         details TEXT NOT NULL,
         capacity INT NOT NULL,
-        userid string NOT NULL
+        userid TEXT NOT NULL
       )`
     );
     return result;
