@@ -5,8 +5,8 @@ const Event = {
   getAll: async (query = "") => {
     if (query) {
       const [rows] = await db.query(
-        "SELECT * FROM events WHERE CONCAT(name, location, category, date, details) LIKE ?",
-        [`%${query}%`]
+          "SELECT * FROM events WHERE CONCAT(name, location, category, date, details) LIKE ?",
+          [`%${query}%`]
       );
       return rows;
     }
@@ -19,15 +19,15 @@ const Event = {
   },
   create: async (event) => {
     const [result] = await db.query(
-      "INSERT INTO events (name, location, category, date, details, capacity, userid) VALUES (?, ?, ?, ?, ?, ?, ?)",
-      [event.name, event.location, event.category, event.date, event.details, event.capacity, event.userid]
+        "INSERT INTO events (name, location, category, date, details, capacity, userid, imageUrl) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        [event.name, event.location, event.category, event.date, event.details, event.capacity, event.userid, event.imageUrl]
     );
     return result.insertId;
   },
   update: async (id, event) => {
     const [result] = await db.query(
-      "UPDATE events SET name = ?, location = ?, category = ?, date = ?, details = ?, capacity = ? , userid = ? WHERE id = ?",
-      [event.name, event.location, event.category, event.date, event.details, event.capacity, event.userid, id]
+        "UPDATE events SET name = ?, location = ?, category = ?, date = ?, details = ?, capacity = ? , userid = ? WHERE id = ?",
+        [event.name, event.location, event.category, event.date, event.details, event.capacity, event.userid, id]
     );
     return result.affectedRows;
   },
@@ -37,16 +37,19 @@ const Event = {
   },
   createTable: async () => {
     const [result] = await db.query(
-      `CREATE TABLE IF NOT EXISTS events (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(255) NOT NULL,
-        location VARCHAR(255) NOT NULL,
-        category VARCHAR(255) NOT NULL,
-        date DATE NOT NULL,
-        details TEXT NOT NULL,
-        capacity INT NOT NULL,
-        userid TEXT NOT NULL
-      )`
+        `
+                CREATE TABLE IF NOT EXISTS events (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                name VARCHAR(255) NOT NULL,
+                location VARCHAR(255) NOT NULL,
+                category VARCHAR(255) NOT NULL,
+                date DATE NOT NULL,
+                details TEXT NOT NULL,
+                capacity INT NOT NULL,
+                userid VARCHAR(255) NOT NULL,
+                imageUrl VARCHAR(255) NOT NULL
+            )
+      `
     );
     return result;
   },
