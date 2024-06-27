@@ -5,7 +5,7 @@ const Event = {
   getAll: async (query = "") => {
     if (query) {
       const [rows] = await db.query(
-          "SELECT * FROM events WHERE CONCAT(name, location, category, date, details) LIKE ?",
+          "SELECT * FROM events WHERE CONCAT(name, location, category, date, details, userid) LIKE ?",
           [`%${query}%`]
       );
       return rows;
