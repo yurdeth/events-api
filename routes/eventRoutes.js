@@ -1,6 +1,6 @@
 // routes/eventRoutes.js
-import { Router } from "express";
-import { getAllEvents, getEventById, createEvent, updateEvent, deleteEvent } from "../controllers/eventController";
+import {Router} from "express";
+import {createEvent, deleteEvent, getAllEvents, getEventById, updateEvent} from "../controllers/eventController";
 
 const router = Router();
 
