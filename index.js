@@ -22,7 +22,7 @@ app.use(cors());
 
 // Configura CORS
 // const corsOptions = {
-//   origin: ['http://127.0.0.1:5500', 'http://localhost:5500'], // Añade aquí los orígenes permitidos
+//   origin: ['http://127.0.0.1:5500', 'http:""//localhost:5500'], // Añade aquí los orígenes permitidos
 //   optionsSuccessStatus: 200
 // };
 // app.use(cors(corsOptions)); // Usa CORS con las opciones configuradas
